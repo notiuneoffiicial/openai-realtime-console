@@ -13,9 +13,16 @@ export default {
       "@": resolve(__dirname, "client"),
     },
   },
+  server: {
+    // 👇 allow Railway's generated host domain
+    allowedHosts: [
+      "openai-realtime-console-production-9e2b.up.railway.app",
+      // you can add others here if needed later
+    ],
+    port: process.env.PORT || 3000,
+  },
   build: {
     rollupOptions: {
-      // Exclude virtual modules from SSR build
       external: ["/:routes.js", "/:create.jsx", "/:context.js"],
     },
   },
