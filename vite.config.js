@@ -8,11 +8,11 @@ const __dirname = dirname(__filename);
 
 // Automatically detect any /:*.js or /:*.jsx files in client/src
 const aliasFiles = fs
-  .readdirSync(resolve(__dirname, "client/src"))
+  .readdirSync(resolve(__dirname, "client"))
   .filter((f) => f.startsWith(":") && (f.endsWith(".js") || f.endsWith(".jsx")));
 
 const aliases = aliasFiles.reduce((acc, file) => {
-  acc[`/${file}`] = resolve(__dirname, `client/src/${file}`);
+  acc[`/${file}`] = resolve(__dirname, `client/${file}`);
   return acc;
 }, {});
 
