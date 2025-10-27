@@ -10,13 +10,14 @@ export default {
   plugins: [react()],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "client/src"),           // allows imports like "@/components/..."
-      "/:routes.js": resolve(__dirname, "client/src/routes.js"), // fixes your build error
+      "@": resolve(__dirname, "client/src"),
+      "/:routes.js": resolve(__dirname, "client/src/routes.js"),
+      "/:create.jsx": resolve(__dirname, "client/src/create.jsx"), // 👈 add this line
     },
   },
   build: {
     rollupOptions: {
-      external: [], // ensures Rollup doesn't skip internal imports
+      external: [],
     },
   },
 };
